@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import {Screens} from "./constants";
-import {selectScreenName} from "./store/selectors";
+import {selectScreenName} from "./store/app/selectors";
 import HomeScreen from './screens/Home';
 import OrderUsersScreen from './screens/Order/Users';
 

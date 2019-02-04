@@ -1,66 +1,14 @@
 import {
     call, put, select, take, takeLatest, takeEvery, fork, all
 } from 'redux-saga/effects';
-import {FETCH_USERS, FETCH_USERS_SUCCESS, START_APP, START_ORDER, Screens} from "./../constants";
-import * as api from "./../api";
-import {
-    fetchCashierBalanceError,
-    fetchCashierBalanceSuccess,
-    fetchProductsError,
-    fetchProductsSuccess,
-    fetchUsersError,
-    fetchUsersSuccess,
-    showScreen
-} from "./actions";
+import app from './app/sagas';
+import order from './order/sagas';
 
-function* fetchUsers() {
-    try {
-        const users = yield call(api.getUsers);
-        yield put(fetchUsersSuccess(users))
-    }
-    catch(err) {
-        yield put(fetchUsersError(err))
-    }
-}
-
-function* fetchProducts() {
-    try {
-        const products = yield call(api.getProducts);
-        yield put(fetchProductsSuccess(products))
-    }
-    catch(err) {
-        yield put(fetchProductsError(err))
-    }
-}
-
-function* fetchCashierBalance() {
-    try {
-        const balance = yield call(api.getCashierBalance);
-        yield put(fetchCashierBalanceSuccess(balance))
-    }
-    catch(err) {
-        yield put(fetchCashierBalanceError(err))
-    }
-}
-
-function* fetchAll() {
+function* root() {
     yield all([
-        fork(fetchUsers),
-        fork(fetchProducts),
-        fork(fetchCashierBalance)
+        app(),
+        order()
     ])
 }
 
-
-function* startOrder() {
-    console.log('Start order...')
-    yield put(showScreen(Screens.ORDER_USER))
-}
-
-function* app() {
-    yield takeLatest(START_APP, fetchAll);
-    yield takeEvery(START_ORDER, startOrder)
-    console.log('Wait')
-}
-
-export default app;
+export default root;

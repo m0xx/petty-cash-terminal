@@ -1,17 +1,9 @@
 import {
     FETCH_CASHIER_BALANCE,
-    FETCH_CASHIER_BALANCE_SUCCESS,
     FETCH_CASHIER_BALANCE_ERROR,
-    FETCH_PRODUCTS,
-    FETCH_PRODUCTS_SUCCESS,
-    FETCH_PRODUCTS_ERROR,
-    FETCH_USERS,
-    FETCH_USERS_SUCCESS,
-    FETCH_USERS_ERROR,
-    SHOW_SCREEN,
-    START_ORDER,
-    START_APP
-} from "./../constants";
+    FETCH_CASHIER_BALANCE_SUCCESS, FETCH_PRODUCTS, FETCH_PRODUCTS_ERROR, FETCH_PRODUCTS_SUCCESS,
+    FETCH_USERS, FETCH_USERS_ERROR, FETCH_USERS_SUCCESS, SHOW_SCREEN, START_APP
+} from "./types";
 
 /**
  *  Fetch cashier balance
@@ -101,12 +93,3 @@ export const startApp = () => ({
     type: START_APP,
     payload: {}
 })
-
-/**
- *  Start an order flow
- */
-export const startOrder = () => ({
-    type: START_ORDER,
-    payload: {}
-})
-

@@ -1,0 +1,1 @@
+export const START_ORDER = 'order/start-order'

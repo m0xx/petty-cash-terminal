@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Button from '@material-ui/core/Button';
-import {startApp, startOrder} from "../../store/actions";
+import {startApp} from "../../store/app/actions";
+import {startOrder} from "../../store/order/actions";
 
 
 class HomeScreen extends React.Component {
