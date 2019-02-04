@@ -1,4 +1,4 @@
-const HOST ='http://localhost:8000';
+const HOST ='http://cashier-api.caprover.maxm.ca';
 const ROOT_URL = `${HOST}`;
 
 function queryParams(params) {
