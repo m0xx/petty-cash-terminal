@@ -2,23 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Button from '@material-ui/core/Button';
-import {startApp, startOrder} from "../../store/app/actions";
+import {showScreen, startApp, startOrder} from "../../store/app/actions";
 import {selectUsers} from "../../store/app/selectors";
 import {selectUser} from "../../store/order/actions";
+import Navbar from "../../Components/Navbar";
+import UserList from "../../Components/UserList";
+import {Screens} from "../../constants";
 
 
 class OrderUsersScreen extends React.Component {
-    componentWillMount() {
-        // this.props.dispatch(startApp());
-    }
     render() {
+        const {users} = this.props;
         return <div>
-            <h1>Users</h1>
-            {this.props.users.map(({id, email}) => {
-                return <div key={id} onClick={() => {
-                    this.props.dispatch(selectUser(id))
-                }}>{ email }</div>
-            })}
+            <Navbar title="Choisir utilisateur" onNavigateBack={() => {
+                this.props.dispatch(showScreen(Screens.HOME))
+            }} />
+            <UserList users={users} onSelect={(id) => {
+                this.props.dispatch(selectUser(id));
+            }} />
         </div>
     }
 }

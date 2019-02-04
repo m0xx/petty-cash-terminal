@@ -14,9 +14,12 @@ class HomeScreen extends React.Component {
     render() {
         const {balance} = this.props;
 
+        if(balance === null) {
+            return null;
+        }
         return <div>
-            <h1>Home { balance ? balance.toString() : 'oops'}</h1>
-            <Button onClick={() => {
+            <h1>Balance: { balance }$</h1>
+            <Button variant="contained" color="primary" onClick={() => {
                 this.props.dispatch(startOrder())
             }}>Start Order</Button>
         </div>

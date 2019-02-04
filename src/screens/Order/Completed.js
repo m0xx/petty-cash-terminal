@@ -4,14 +4,17 @@ import { connect } from 'react-redux';
 import {
     isOrderSuccess
 } from "../../store/order/selectors";
-import {cashierCreditProduct} from "../../store/order/actions";
+import Typography from "@material-ui/core/Typography/Typography";
 
 
 class CompletedScreen extends React.Component {
     render() {
         return <div>
-            <h1>Completed</h1>
-            {this.props.success.toString()}
+            {
+                this.props.success
+                    ? <Typography color="primary">Succès!</Typography>
+                    : <Typography color="error">Oups!</Typography>
+            }
         </div>
     }
 }
