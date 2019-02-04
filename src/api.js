@@ -39,3 +39,8 @@ export const getCashierBalance = () => {
 export const getProducts = () => sendRequest('/products', {
     method: 'GET'
 })
+
+export const cashierCreditProduct = ({productId, userId, quantity}) => sendRequest('/cashier/credit', {
+    method: 'POST',
+    body: JSON.stringify({productId, userId, quantity})
+})

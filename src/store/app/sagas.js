@@ -2,7 +2,7 @@ import {
     call, put, select, take, takeLatest, takeEvery, fork, all
 } from 'redux-saga/effects';
 
-import {FETCH_USERS, FETCH_USERS_SUCCESS, START_APP, START_ORDER} from "./types";
+import {CASHIER_CREDIT_PRODUCT, FETCH_USERS, FETCH_USERS_SUCCESS, START_APP, START_ORDER} from "./types";
 import {Screens} from "./../../constants";
 import * as api from "./../../api";
 import {
