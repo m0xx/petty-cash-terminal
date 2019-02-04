@@ -32,11 +32,12 @@ export const getUsers = () => sendRequest('/users', {
     method: 'GET'
 })
 
-export const getCashierBalance = () => {
-    return Promise.resolve(256.45);
-}
 
 export const getProducts = () => sendRequest('/products', {
+    method: 'GET'
+})
+
+export const getCashierBalance = () => sendRequest('/cashier/balance', {
     method: 'GET'
 })
 

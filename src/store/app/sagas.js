@@ -14,6 +14,7 @@ import {
     fetchUsersSuccess,
     showScreen
 } from "./actions";
+import {CASHIER_CREDIT_PRODUCT_SUCCESS} from "../order/types";
 
 function* fetchUsers() {
     try {
@@ -37,10 +38,12 @@ function* fetchProducts() {
 
 function* fetchCashierBalance() {
     try {
-        const balance = yield call(api.getCashierBalance);
-        yield put(fetchCashierBalanceSuccess(balance))
+        const {amount} = yield call(api.getCashierBalance);
+
+        yield put(fetchCashierBalanceSuccess(amount))
     }
     catch(err) {
+        console.log('ooops', err)
         yield put(fetchCashierBalanceError(err))
     }
 }
@@ -55,6 +58,7 @@ function* fetchAll() {
 
 function* app() {
     yield takeLatest(START_APP, fetchAll);
+    yield takeLatest(CASHIER_CREDIT_PRODUCT_SUCCESS, fetchCashierBalance);
 }
 
 export default app;
