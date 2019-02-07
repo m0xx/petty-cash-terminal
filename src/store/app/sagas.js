@@ -3,7 +3,7 @@ import {
 } from 'redux-saga/effects';
 
 import {CASHIER_CREDIT_PRODUCT, FETCH_USERS, FETCH_USERS_SUCCESS, START_APP, START_ORDER} from "./types";
-import {Screens} from "./../../constants";
+import {PAGE_REFRESH_TIMEOUT} from "./../../constants";
 import * as api from "./../../api";
 import {
     fetchCashierBalanceError,
@@ -11,8 +11,7 @@ import {
     fetchProductsError,
     fetchProductsSuccess,
     fetchUsersError,
-    fetchUsersSuccess,
-    showScreen
+    fetchUsersSuccess
 } from "./actions";
 import {CASHIER_CREDIT_PRODUCT_SUCCESS} from "../order/types";
 
@@ -56,9 +55,28 @@ function* fetchAll() {
     ])
 }
 
+function refreshPage() {
+    window.location.reload();
+}
+
+let timer;
+function* setTimer() {
+    while(true) {
+        // set timer
+        timer = setTimeout(refreshPage, PAGE_REFRESH_TIMEOUT)
+
+        // wait any dispatched action
+        yield take('*');
+
+        // reset timer
+        clearTimeout(timer)
+    }
+}
+
 function* app() {
     yield takeLatest(START_APP, fetchAll);
     yield takeLatest(CASHIER_CREDIT_PRODUCT_SUCCESS, fetchCashierBalance);
+    yield fork(setTimer)
 }
 
 export default app;
