@@ -46,7 +46,7 @@ const styles = theme => ({
     }
 });
 
-function MediaControlCard({ classes, image, title, price = 0.0, quantity = 0 }) {
+function ProductCard({ classes, image, title, price = 0.0, quantity = 0 }) {
     const outOfStock = quantity <= 0;
 
     return (
@@ -78,4 +78,4 @@ function MediaControlCard({ classes, image, title, price = 0.0, quantity = 0 }) 
     );
 }
 
-export default withStyles(styles)(MediaControlCard);
+export default withStyles(styles)(ProductCard);

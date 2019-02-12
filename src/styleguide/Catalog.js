@@ -4,6 +4,7 @@ import cn from 'classnames';
 import Typography from "@material-ui/core/Typography/Typography";
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
+import UserCard from "../components/UserCard";
 
 const styles = ({ theme }) => ({
     root: {
@@ -29,6 +30,13 @@ function Catalog({ children, classes, className = '', fullWidth = false, fullHei
         >
             <Section title="Navbar">
                 <Navbar title="Section Name" />
+            </Section>
+            <Section title="User Card">
+                <UserCard
+                    image="https://via.placeholder.com/150"
+                    firstName="Pierre-Luc"
+                    lastName="Tremblay"
+                />
             </Section>
             <Section title="Product Card">
                 <ProductCard
