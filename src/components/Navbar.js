@@ -6,30 +6,33 @@ import Typography from "@material-ui/core/Typography/Typography";
 import MenuIcon from "@material-ui/icons/ArrowBack";
 import {withStyles} from "@material-ui/core";
 
-const styles = {
-    root: {
-        flexGrow: 1,
-    },
-    grow: {
-        flexGrow: 1,
-    },
+const styles = (theme) => ({
     menuButton: {
         marginLeft: -12,
         marginRight: 20,
     },
-};
+    menuRoot: {
+        width: '1.5em',
+        height: '1.5em'
+    },
+    colorDefault: {
+        color: theme.palette.common.black,
+        backgroundColor: theme.palette.common.white
+    }
+
+});
 
 function Navbar({classes, title, onNavigateBack}) {
-    return <AppBar position="static">
+    return <div>
         <Toolbar>
-            <IconButton className={classes.menuButton} onClick={onNavigateBack}  color="inherit" aria-label="Back">
-                <MenuIcon />
+            <IconButton  className={classes.menuButton} onClick={onNavigateBack}  color="inherit" aria-label="Back">
+                <MenuIcon classes={{root: classes.menuRoot}} />
             </IconButton>
-            <Typography variant="h6" color="inherit" className={classes.grow}>
+            <Typography variant="headline" color="inherit" className={classes.grow}>
                 { title }
             </Typography>
         </Toolbar>
-    </AppBar>
+    </div>
 }
 
 export default withStyles(styles)(Navbar);

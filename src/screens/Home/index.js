@@ -7,9 +7,10 @@ import AddIcon from "@material-ui/icons/Add";
 import {startApp} from "../../store/app/actions";
 import {startOrder} from "../../store/order/actions";
 import {selectBalance} from "../../store/app/selectors";
-import BalanceCard from "../../Components/BalanceCard";
+import BalanceCard from "../../components/BalanceCard";
 import {withStyles} from "@material-ui/core";
 import Fab from "@material-ui/core/Fab/Fab";
+import Layout from "../../components/Layout";
 
 const styles = (theme) => ({
     root: {
@@ -43,6 +44,7 @@ class HomeScreen extends React.Component {
         if(balance === null) {
             return null;
         }
+
 
         // TODO: move click handler
         return <div className={classes.root}>

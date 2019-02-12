@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import {getSelectedProduct, getSelectedUserId, isLoading} from "../../store/order/selectors";
 import {cashierCreditProduct} from "../../store/order/actions";
-import Navbar from "../../Components/Navbar";
+import Navbar from "../../components/Navbar";
 import {showScreen} from "../../store/app/actions";
 import {Screens} from "../../constants";
 import Typography from "@material-ui/core/Typography/Typography";

@@ -1,5 +1,8 @@
 import { createMuiTheme, Theme } from '@material-ui/core/styles';
 
+const primary = ['#5555FF', '#5757FF', '#9787FF'];
+const secondary = ['#FF55B8', '#FF61AB', '#FF8787'];
+
 const theme = {
     palette: {
         // secondary: {
@@ -7,7 +10,12 @@ const theme = {
         // }
     },
     typography: {
-        fontFamily: "\"Rubik\", \"Helvetica\", \"Arial\", \"sans-serif\""
+        fontFamily: "\"Montserrat\", \"Helvetica\", \"Arial\", \"sans-serif\"",
+        fontSize: 18,
+        headline: {
+            fontWeight: 800,
+            fontSize: '2rem'
+        }
         // fontFamily: "\"Karla\", \"Helvetica\", \"Arial\", \"sans-serif\""
     }
 }

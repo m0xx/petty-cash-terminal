@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
+    "styleguide": "parcel styleguide.html",
     "build": "parcel build index.html"
   },
   "keywords": [],
@@ -14,6 +15,7 @@
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
     "babel-polyfill": "^6.26.0",
+    "classnames": "^2.2.6",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",

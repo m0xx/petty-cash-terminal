@@ -5,8 +5,8 @@ import Button from '@material-ui/core/Button';
 import {showScreen, startApp, startOrder} from "../../store/app/actions";
 import {selectUsers} from "../../store/app/selectors";
 import {selectUser} from "../../store/order/actions";
-import Navbar from "../../Components/Navbar";
-import UserList from "../../Components/UserList";
+import Navbar from "../../components/Navbar";
+import UserList from "../../components/UserList";
 import {Screens} from "../../constants";
 
 
