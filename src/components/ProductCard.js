@@ -25,7 +25,7 @@ const styles = theme => ({
     cover: {
         width: 150
     },
-    title: {
+    name: {
         marginBottom: theme.spacing.unit
     },
     price: {
@@ -46,25 +46,25 @@ const styles = theme => ({
     }
 });
 
-function ProductCard({ classes, image, title, price = 0.0, quantity = 0 }) {
+function ProductCard({ classes, image, name, price = 0.0, quantity = 0, onClick }) {
     const outOfStock = quantity <= 0;
 
     return (
         <Card className={classes.card}>
-            <CardActionArea>
+            <CardActionArea onClick={onClick}>
                 <div className={classes.container}>
-                    <CardMedia className={classes.cover} image={image} title={title} />
+                    <CardMedia className={classes.cover} image={image} title={name} />
                     <div className={classes.details}>
                         <CardContent className={classes.content}>
                             <Typography className={classes.title} variant="title">
-                                {title}
+                                {name}
                             </Typography>
                             <Typography className={classes.price} variant="subheading">
                                 {formatMoney(price)} $
                             </Typography>
                             <Typography
                                 className={cn(classes.stock, {
-                                    [classes.outOfStock]: quantity <= 0
+                                    [classes.outOfStock]: outOfStock
                                 })}
                                 variant="caption"
                             >

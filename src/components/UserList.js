@@ -1,31 +1,24 @@
 import React from 'react';
-import Typography from "@material-ui/core/Typography/Typography";
 import {withStyles} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid/Grid";
-import Avatar from "@material-ui/core/Avatar/Avatar";
+import UserCard from './UserCard';
 
-const styles = {
-    userTitle: {
-        marginTop: '1rem',
-    },
-    avatar: {
-        width: 100,
-        height: 100,
-    },
-};
+const styles = (theme) => ({
+    root: {
+    }
+});
 
 function UserList({classes, users, onSelect}) {
-    return  <Grid container justify="center" alignItems="center">
+    return  <Grid container justify="flex-start" alignItems="center">
         {users.map((user) => {
-            const fullName = `${user.first_name}`;
-            return <div onClick={() => {
-                onSelect(user.id);
-            }}>
-                <Avatar alt={fullName} src={user.picture.medium} className={classes.avatar} />
-                <Typography className={classes.userTitle} variant="title" align="center">
-                    { fullName }
-                </Typography>
-            </div>
+            return <UserCard
+                onClick={() => {
+                    onSelect(user.id);
+                }}
+                image={user.picture.medium}
+                firstName={user.first_name}
+                lastName={user.last_name}
+            />
         })}
     </Grid>
 }

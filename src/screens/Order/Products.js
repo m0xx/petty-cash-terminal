@@ -8,20 +8,23 @@ import {selectProduct, selectUser} from "../../store/order/actions";
 import ProductList from "../../components/ProductList";
 import Navbar from "../../components/Navbar";
 import {Screens} from "../../constants";
+import Layout from "../../components/Layout";
 
 
 class OrderProductsScreen extends React.Component {
     render() {
         const { products } = this.props;
 
-        return <div>
-            <Navbar title="Choisir produit" onNavigateBack={() => {
+        return <Layout
+            fullHeight
+            navbar={<Navbar title="Choisir produit" onNavigateBack={() => {
                 this.props.dispatch(showScreen(Screens.ORDER_USER))
-            }} />
+            }} />}
+        >
             <ProductList products={products} onSelect={(id) => {
                 this.props.dispatch(selectProduct(id))
             }} />
-        </div>
+        </Layout>
     }
 }
 

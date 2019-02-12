@@ -40,14 +40,14 @@ function Catalog({ children, classes, className = '', fullWidth = false, fullHei
             </Section>
             <Section title="Product Card">
                 <ProductCard
-                    title="Awful product"
+                    name="Awful product"
                     description="You can go on the moon maybe out of space"
                     image="https://via.placeholder.com/150"
                     quantity={32}
                     price={2.45}
                 />
                 <ProductCard
-                    title="Awesome product"
+                    name="Awesome product"
                     description="You can go on the moon maybe out of space"
                     image="https://via.placeholder.com/150"
                     quantity={0}

@@ -39,20 +39,20 @@ const styles = theme => ({
     },
 });
 
-function UserCard({ classes, image, firstName, lastName}) {
+function UserCard({ classes, image, firstName, lastName, onClick}) {
     const fullName = `${firstName} ${lastName}`;
 
     return (
         <Card className={classes.card} style={{width: 200}}>
-            <CardActionArea>
+            <CardActionArea onClick={onClick}>
                 <div className={classes.container}>
                         <CardContent className={classes.content}>
                             <Avatar alt={fullName} src={image} className={classes.avatar} />
                             <Typography className={classes.label} variant="body2">
-                                {firstName}
+                                {firstName || '-'}
                             </Typography>
                             <Typography className={classes.label} variant="body2">
-                                {lastName}
+                                {lastName || '-'}
                             </Typography>
                         </CardContent>
                 </div>
