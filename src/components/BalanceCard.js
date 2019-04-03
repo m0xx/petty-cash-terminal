@@ -20,10 +20,21 @@ const styles = (theme) => ({
     balance: {
         fontSize: '5rem',
         fontWeight: 400
+    },
+    labelInventory: {
+        marginTop: theme.spacing.unit * 2,
+        fontSize: '1rem'
+    },
+    balanceInventory: {
+        fontSize: '2.5rem',
+        fontWeight: 400
+    },
+    wallet: {
+        marginLeft: theme.spacing.unit * 3
     }
 })
 
-function BalanceCard({classes, balance, className}) {
+function BalanceCard({classes, balance, className, inventory, wallet}) {
     return (
         <Paper elevation={24} className={classes.root + ' ' + className}>
             <Typography className={classes.label}  variant={"subtitle1"} color={"textSecondary"}>
@@ -32,6 +43,24 @@ function BalanceCard({classes, balance, className}) {
             <Typography className={classes.balance} variant={"title"}>
                 $ { formatMoney(balance) }
             </Typography>
+            <div style={{display: 'flex'}}>
+                <div>
+                    <Typography className={classes.labelInventory}  variant={"subtitle1"} color={"textSecondary"}>
+                        Inventory
+                    </Typography>
+                    <Typography className={classes.balanceInventory} variant={"title"}>
+                        $ { formatMoney(inventory) }
+                    </Typography>
+                </div>
+                <div className={classes.wallet}>
+                    <Typography className={classes.labelInventory}  variant={"subtitle1"} color={"textSecondary"}>
+                        Wallet
+                    </Typography>
+                    <Typography className={classes.balanceInventory} variant={"title"}>
+                        $ { formatMoney(wallet) }
+                    </Typography>
+                </div>
+            </div>
         </Paper>
     )
 }

@@ -15,6 +15,7 @@ import {
 const initialState = {
     screen: Screens.HOME,
     balance: null,
+    walletBalance: null,
     products: [],
     users: []
 };
@@ -39,7 +40,8 @@ const reducer = (state = initialState, action) => {
         case FETCH_CASHIER_BALANCE_SUCCESS:
             return {
                 ...state,
-                balance: action.payload
+                balance: action.payload.amount,
+                walletBalance: action.payload.walletAmount
             };
     }
 

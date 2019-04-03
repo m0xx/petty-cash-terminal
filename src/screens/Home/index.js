@@ -6,11 +6,14 @@ import AddIcon from "@material-ui/icons/Add";
 
 import {startApp} from "../../store/app/actions";
 import {startOrder} from "../../store/order/actions";
-import {selectBalance} from "../../store/app/selectors";
+import {selectBalance, selectInventory, selectWalletBalance} from "../../store/app/selectors";
 import BalanceCard from "../../components/BalanceCard";
 import {withStyles} from "@material-ui/core";
 import Fab from "@material-ui/core/Fab/Fab";
 import Layout from "../../components/Layout";
+import Typography from "@material-ui/core/Typography/Typography";
+import {formatMoney} from "../../utils";
+import Paper from "@material-ui/core/Paper/Paper";
 
 const styles = (theme) => ({
     root: {
@@ -39,7 +42,7 @@ class HomeScreen extends React.Component {
         this.props.dispatch(startApp());
     }
     render() {
-        const {balance, classes} = this.props;
+        const {balance, classes, inventory, walletBalance} = this.props;
 
         if(balance === null) {
             return null;
@@ -48,8 +51,8 @@ class HomeScreen extends React.Component {
 
         // TODO: move click handler
         return <div className={classes.root}>
-            <BalanceCard className={classes.balance} balance={balance} />
-            <Fab className={classes.fab} color="secondary" aria-label="Add" onClick={() => {
+                <BalanceCard className={classes.balance} balance={balance} inventory={inventory} wallet={walletBalance}/>
+                <Fab className={classes.fab} color="secondary" aria-label="Add" onClick={() => {
                 this.props.dispatch(startOrder())
             }}>
                 <AddIcon fontSize={"large"} />
@@ -61,6 +64,8 @@ class HomeScreen extends React.Component {
 const mapStateToProps = (state) => {
     return {
         balance: selectBalance(state),
+        inventory: selectInventory(state),
+        walletBalance: selectWalletBalance(state),
     }
 }
 

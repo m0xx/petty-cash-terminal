@@ -37,9 +37,9 @@ function* fetchProducts() {
 
 function* fetchCashierBalance() {
     try {
-        const {amount} = yield call(api.getCashierBalance);
+        const result = yield call(api.getCashierBalance);
 
-        yield put(fetchCashierBalanceSuccess(amount))
+        yield put(fetchCashierBalanceSuccess(result))
     }
     catch(err) {
         console.log('ooops', err)

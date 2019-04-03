@@ -15,10 +15,10 @@ export const fetchCashierBalance = () => {
     }
 }
 
-export const fetchCashierBalanceSuccess = (balance) => {
+export const fetchCashierBalanceSuccess = (payload) => {
     return {
         type: FETCH_CASHIER_BALANCE_SUCCESS,
-        payload: balance
+        payload
     }
 }
 
