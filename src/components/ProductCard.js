@@ -20,13 +20,11 @@ const styles = theme => ({
         flexDirection: 'column'
     },
     content: {
-        flex: '1 0 auto'
+        flex: '1 0 auto',
+        padding: theme.spacing.unit * 2
     },
     cover: {
         width: 150
-    },
-    name: {
-        marginBottom: theme.spacing.unit
     },
     price: {
         display: 'inline-block',
@@ -41,8 +39,17 @@ const styles = theme => ({
         textDecoration: 'underline',
         color: 'green'
     },
+    title: {
+        marginBottom: theme.spacing.unit
+    },
     outOfStock: {
         color: 'red'
+    },
+    cardContentRoot: {
+        padding: theme.spacing.unit,
+        ':last-child': {
+            paddingBottom: theme.spacing.unit,
+        }
     }
 });
 
@@ -55,7 +62,7 @@ function ProductCard({ classes, image, name, price = 0.0, quantity = 0, onClick 
                 <div className={classes.container}>
                     <CardMedia className={classes.cover} image={image} title={name} />
                     <div className={classes.details}>
-                        <CardContent className={classes.content}>
+                        <div  className={classes.content}>
                             <Typography className={classes.title} variant="title">
                                 {name}
                             </Typography>
@@ -70,7 +77,7 @@ function ProductCard({ classes, image, name, price = 0.0, quantity = 0, onClick 
                             >
                                 {outOfStock ? 'Out of stock' : `${quantity} left in stock`}
                             </Typography>
-                        </CardContent>
+                        </div>
                     </div>
                 </div>
             </CardActionArea>

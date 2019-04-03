@@ -18,13 +18,13 @@ const styles = {
 
 function ProductList({classes, products, onSelect}) {
     return  <div>
-        {products.map(({id, name, description, price, quantity}) => {
+        {products.map(({id, image, name, description, price, quantity}) => {
             return <ProductCard
                 key={id}
                 name={name}
                 price={price}
                 quantity={quantity}
-                image="http://mathematics-in-europe.eu/wp-content/uploads/2016/02/mug-of-beer.jpg"
+                image={image || "https://imbindonesia.com/images/placeholder/camera.jpg"}
                 onClick={() => {
                     onSelect(id)
                 }}
