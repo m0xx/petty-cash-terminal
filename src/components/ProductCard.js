@@ -10,7 +10,7 @@ import { formatMoney } from '../utils';
 
 const styles = theme => ({
     card: {
-        marginBottom: theme.spacing.unit * 2
+        marginBottom: theme.spacing.unit * 3
     },
     container: {
         display: 'flex'
@@ -67,7 +67,7 @@ function ProductCard({ classes, image, name, price = 0.0, quantity = 0, onClick 
                                 {name}
                             </Typography>
                             <Typography className={classes.price} variant="subheading">
-                                {formatMoney(price)} $
+                                {formatMoney(price)}
                             </Typography>
                             <Typography
                                 className={cn(classes.stock, {
@@ -75,7 +75,7 @@ function ProductCard({ classes, image, name, price = 0.0, quantity = 0, onClick 
                                 })}
                                 variant="caption"
                             >
-                                {outOfStock ? 'Out of stock' : `${quantity} left in stock`}
+                                {outOfStock ? 'Rupture de stock' : `${quantity} en stock`}
                             </Typography>
                         </div>
                     </div>

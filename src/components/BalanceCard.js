@@ -26,11 +26,11 @@ const styles = (theme) => ({
         fontSize: '1rem'
     },
     balanceInventory: {
-        fontSize: '2.5rem',
+        fontSize: '2rem',
         fontWeight: 400
     },
     wallet: {
-        marginLeft: theme.spacing.unit * 3
+        marginLeft: theme.spacing.unit * 4
     }
 })
 
@@ -41,23 +41,31 @@ function BalanceCard({classes, balance, className, inventory, wallet}) {
                 Balance
             </Typography>
             <Typography className={classes.balance} variant={"title"}>
-                $ { formatMoney(balance) }
+                { formatMoney(balance + inventory + wallet) }
             </Typography>
             <div style={{display: 'flex'}}>
                 <div>
                     <Typography className={classes.labelInventory}  variant={"subtitle1"} color={"textSecondary"}>
-                        Inventory
+                        Crédit
                     </Typography>
                     <Typography className={classes.balanceInventory} variant={"title"}>
-                        $ { formatMoney(inventory) }
+                        { formatMoney(balance) }
                     </Typography>
                 </div>
                 <div className={classes.wallet}>
                     <Typography className={classes.labelInventory}  variant={"subtitle1"} color={"textSecondary"}>
-                        Wallet
+                        Comptant
                     </Typography>
                     <Typography className={classes.balanceInventory} variant={"title"}>
-                        $ { formatMoney(wallet) }
+                        { formatMoney(wallet) }
+                    </Typography>
+                </div>
+                <div className={classes.wallet}>
+                    <Typography className={classes.labelInventory}  variant={"subtitle1"} color={"textSecondary"}>
+                        Inventaire
+                    </Typography>
+                    <Typography className={classes.balanceInventory} variant={"title"}>
+                        { formatMoney(inventory) }
                     </Typography>
                 </div>
             </div>
