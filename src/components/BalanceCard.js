@@ -41,7 +41,7 @@ function BalanceCard({classes, balance, className, inventory, wallet}) {
                 Balance
             </Typography>
             <Typography className={classes.balance} variant={"title"}>
-                { formatMoney(balance + inventory + wallet) }
+                { formatMoney(balance + wallet) }
             </Typography>
             <div style={{display: 'flex'}}>
                 <div>
